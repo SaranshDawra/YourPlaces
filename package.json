@@ -1,0 +1,25 @@
+{
+  "name": "yourplaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaranshDawra/YourPlaces.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SaranshDawra/YourPlaces/issues"
+  },
+  "homepage": "https://github.com/SaranshDawra/YourPlaces#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "uuid": "^8.3.1"
+  }
+}
