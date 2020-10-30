@@ -10,10 +10,6 @@ const DUMMY_PLACES = [
         imageUrl:
             "https://images.pexels.com/photos/2190283/pexels-photo-2190283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         address: "20 W 34th St, New York, NY 10001",
-        location: {
-            lat: 40.7484405,
-            lng: -73.9878584,
-        },
         creator: "u1",
     },
     {
@@ -23,10 +19,6 @@ const DUMMY_PLACES = [
         imageUrl:
             "https://images.pexels.com/photos/2190283/pexels-photo-2190283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         address: "20 W 34th St, New York, NY 10001",
-        location: {
-            lat: 40.7484405,
-            lng: -73.9878584,
-        },
         creator: "u2",
     },
 ];
