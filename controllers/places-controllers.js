@@ -62,9 +62,8 @@ const getPlacesByUserId = async (req, res, next) => {
 const createPlace = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        throw new HttpError(
-            "Invalid inputs passed, please check your data",
-            422
+        return next(
+            new HttpError("Invalid inputs passed, please check your data", 422)
         );
     }
 
@@ -75,7 +74,7 @@ const createPlace = async (req, res, next) => {
         description,
         address,
         image:
-            "https://www.pexels.com/photo/aerial-photography-of-boats-on-shore-1998439/",
+            "https://images.pexels.com/photos/1903702/pexels-photo-1903702.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         creator,
     });
 
@@ -178,9 +177,9 @@ const deletePlace = async (req, res, next) => {
     try {
         const sess = await mongoose.startSession();
         sess.startTransaction();
-        await place.remove({session: sess});
+        await place.remove({ session: sess });
         place.creator.places.pull(place);
-        await place.creator.save({session: sess});
+        await place.creator.save({ session: sess });
         await sess.commitTransaction();
     } catch (err) {
         const error = new HttpError(
