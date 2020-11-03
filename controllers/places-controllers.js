@@ -1,3 +1,4 @@
+const fs = require("fs");
 const { validationResult } = require("express-validator");
 const Place = require("../models/place");
 const User = require("../models/user");
@@ -73,8 +74,7 @@ const createPlace = async (req, res, next) => {
         title,
         description,
         address,
-        image:
-            "https://images.pexels.com/photos/1903702/pexels-photo-1903702.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        image: req.file.path,
         creator,
     });
 
@@ -174,6 +174,8 @@ const deletePlace = async (req, res, next) => {
         return next(error);
     }
 
+    const imagePath = place.image;
+
     try {
         const sess = await mongoose.startSession();
         sess.startTransaction();
@@ -188,6 +190,10 @@ const deletePlace = async (req, res, next) => {
         );
         return next(error);
     }
+
+    fs.unlink(imagePath, (err) => {
+        console.log(err);
+    });
 
     res.status(200).json({ message: "Deleted place" });
 };
