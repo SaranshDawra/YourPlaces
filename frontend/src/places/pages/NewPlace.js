@@ -52,7 +52,7 @@ const NewPlace = () => {
             formData.append("image", formState.inputs.image.value);
 
             await sendRequest(
-                "http://localhost:5000/api/places",
+                "/api/places",
                 "POST",
                 formData,
                 {
